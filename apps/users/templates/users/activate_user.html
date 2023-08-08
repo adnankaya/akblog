@@ -1,0 +1,24 @@
+{% autoescape off %}
+<span style="font-size: 16px;">
+    {{_('Hi')}} {{ user.username }}, {{_("We are excited for that you have joined us.")}}
+</span>
+<br>
+<br>
+<p style="font-size: 16px;">
+    {{_('Please click the following link to confirm your email:')}}
+</p>
+<br>
+<br>
+<a href="{{ activate_url }}">
+    {{ activate_url }}
+</a>
+<br>
+<br>
+<p style="font-size: 14px;">
+    {{_("Thanks")}}
+    <br>
+    {{_("adnankaya.example.com team")}}
+    <br>
+    <a href="https://www.adnankaya.example.com" style="text-decoration: none;">www.adnankaya.example.com</a>
+</p>
+{% endautoescape %}

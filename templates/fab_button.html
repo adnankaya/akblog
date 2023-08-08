@@ -1,0 +1,23 @@
+<style>
+    .fab {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 1px 2px 2px #999;
+        z-index: 100;
+    }
+
+    .fab-icon {
+        margin-top: 16px;
+    }
+</style>
+{% if user.is_authenticated %}
+<a href="{% url 'post:create' %}" class="fab bg-warning text-dark text-center" title="New Post">
+    <i class="fa-solid fa-pen fab-icon"></i>
+</a>
+{% endif %}

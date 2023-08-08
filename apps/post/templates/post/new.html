@@ -1,0 +1,190 @@
+{% extends "post/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block post_body %}
+<div class="card p-2 my-2 bg-md-blue-grey-50 shadow-sm lh-sm">
+    <div class="card-header bg-dark text-white">
+        <h5 class="">
+            <i class="fs-4 bi bi-info-circle-fill"></i>
+            {{_("Create New Post")}}
+        </h5>
+        {% if not user.email_verified %}
+        <div class="alert alert-warning">
+            <strong>
+                {{_("Please confirm your email to activate your published post.")}}
+            </strong>
+            <br>
+            <span>
+                <a class="btn btn-warning btn-sm" href="{% url 'users:request-email-verification' %}">
+                    {{_("You can click here")}}
+                </a>
+                {{_("to request confirmation mail.")}}
+            </span>
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-body bg-md-blue-grey-50">
+        <form method="POST" class="was-validated">
+            {% csrf_token %}
+            <nav>
+                <div class="nav nav-tabs d-flex justify-content-between" id="nav-tab" role="tablist">
+                    <button class="nav-link text-dark active w-25" id="nav-post-title-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-post-title" type="button" role="tab" aria-controls="nav-post-title"
+                        aria-selected="true">
+                        <span class="badge rounded-pill bg-warning text-dark">1</span>
+                        <small class="d-none d-sm-block">{{_("Title")}}</small>
+                    </button>
+                    <button class="nav-link text-dark w-25" id="nav-post-body-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-post-body" type="button" role="tab" aria-controls="nav-post-body"
+                        aria-selected="false">
+                        <span class="badge rounded-pill bg-warning text-dark">2</span>
+                        <small class="d-none d-sm-block">{{_("Description")}}</small>
+                    </button>
+                    <button class="nav-link text-dark w-25" id="nav-post-tags-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-post-tags" type="button" role="tab" aria-controls="nav-post-tags"
+                        aria-selected="false">
+                        <span class="badge rounded-pill bg-warning text-dark">3</span>
+                        <small class="d-none d-sm-block">{{_("Tags")}}</small>
+                    </button>
+                    <button class="nav-link text-dark w-25" id="nav-post-category-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-post-category" type="button" role="tab" aria-controls="nav-post-category"
+                        aria-selected="false">
+                        <span class="badge rounded-pill bg-warning text-dark">4</span>
+                        <small class="d-none d-sm-block">{{_("Category")}}</small>
+                    </button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-post-title" role="tabpanel"
+                    aria-labelledby="nav-post-title-tab" tabindex="0">
+                    <div class="my-3">
+                        <textarea name="title" rows="3" class="form-control" id="validationTextareaTitle"
+                            placeholder="Ex; my awesome article" required></textarea>
+                        <div class="invalid-feedback">
+                            {{_("Please enter the title of the post")}}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-post-body" role="tabpanel" aria-labelledby="nav-post-body-tab"
+                    tabindex="0">
+                    <div class="my-3">
+                        <textarea name="body" rows="10" class="form-control" id="validationTextareaBody"
+                            placeholder="Please write the description."
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            {{_("Please enter the description of the post")}}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-post-tags" role="tabpanel" aria-labelledby="nav-post-tags-tab"
+                    tabindex="0">
+                    <div class="row my-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="postTag1" class="form-label text-muted">
+                                <small>
+                                    {{_("Tag 1")}}
+                                </small>
+                                <b class="text-danger">*</b>
+                            </label>
+                            <input name="tags" type="text" class="form-control form-control-sm is-invalid" id="postTag1"
+                                aria-describedby="postTag1Feedback" required>
+                            <small class="invalid-feedback text-dark">
+                                {{_("Tag 1 Mandatory")}}
+                            </small>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="postTag2" class="form-label text-muted">
+                                <small>
+                                    {{_("Tag 2")}}
+                                </small>
+                                <b class="text-danger">*</b>
+                            </label>
+                            <input name="tags" type="text" class="form-control form-control-sm is-invalid" id="postTag2"
+                                aria-describedby="postTag2Feedback" required>
+                            <small class="invalid-feedback text-dark">
+                                {{_("Tag 2 Mandatory")}}
+                            </small>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="postTag3" class="form-label text-muted">
+                                <small>
+                                    {{_("Tag 3 (optional)")}}
+                                </small>
+                            </label>
+                            <input name="tags" type="text" class="form-control form-control-sm is-invalid" id="postTag3"
+                                aria-describedby="postTag3Feedback">
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="postTag4" class="form-label text-muted">
+                                <small>
+                                    {{_("Tag 4 (optional)")}}
+                                </small>
+                            </label>
+                            <input name="tags" type="text" class="form-control form-control-sm is-invalid" id="postTag4"
+                                aria-describedby="postTag4Feedback">
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="postTag5" class="form-label text-muted">
+                                <small>
+                                    {{_("Tag 5 (optional)")}}
+                                </small>
+                            </label>
+                            <input name="tags" type="text" class="form-control form-control-sm is-invalid" id="postTag5"
+                                aria-describedby="postTag5Feedback">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-post-category" role="tabpanel"
+                    aria-labelledby="nav-post-category-tab" tabindex="0">
+                    <ul class="list-group list-group-sm overflow-scroll" style="max-height: 220px;">
+                        <li class="list-group-item">
+                            <strong>
+                                {{_("Select category")}}
+                            </strong>
+                        </li>
+                        {% for category in categories %}
+                        <li class="list-group-item">
+                            <input value="{{category.id}}" name="category" type="radio" class=""
+                                id="radioCategory{{category.id}}" required>
+                            <label class="form-check-label stretched-link" for="radioCategory{{category.id}}">
+                                {{category.name}}
+                            </label>
+                            <div class="invalid-feedback">{{_("You must select the category.")}}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="form-group d-grid gap-2 mx-auto my-2 shadow-sm">
+                        <button class="btn btn-warning" type="submit">
+                            <strong>
+                                <i class="fs-4 bi bi-check2-all"></i>
+                                {{_("Submit")}}
+                            </strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer alert alert-info">
+        <small>
+            <ul class="">
+                <li>
+                    {{_("You can upload images for the post in the post detail page. ")}}
+                    {{_("In the Update Post section.")}}
+                </li>
+                <li>
+                    {{_("Tags are important for the post to be found easily.")}}
+                    {{_("At least 2 tags are mandatory!")}}
+                </li>
+
+            </ul>
+        </small>
+    </div>
+</div>
+{% endblock post_body %}
+{% block core_rightbar %}
+<div class="my-2">
+    {% include "post/post_create_rules.html" %}
+</div>
+
+{% endblock core_rightbar %}

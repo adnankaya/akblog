@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<div class="card my-3">
+    <div class="card-header bg-dark text-white">
+        <h4 class="account-heading">
+            <i class="bi bi-person-square"></i>
+            {{ profile.user.get_full_name }}
+        </h4>
+    </div>
+    <div class="card-body">
+        <small class="text-muted">
+            <i class="bi bi-calendar3"></i>
+            {{_("Joined at")}} {{profile.user.date_joined|date}} 
+        </small>
+        <p class="text-secondary">
+            <i class="bi bi-pen-fill"></i>
+            <label for="">{{_("About")}}: </label>
+            {{ profile.about }}
+        </p>
+    </div>
+    {% if not user.profile == profile and user.is_authenticated %}
+    <div class="card-footer">
+        {% include "users/rate_star.html" %}
+    </div>
+    {% endif %}
+</div>

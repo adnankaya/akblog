@@ -1,0 +1,139 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: whitesmoke;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+main.core-base{
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.pagination {
+  margin: 40px 0;
+  font-weight: bold;
+}
+
+@media (min-width: 576px) {
+  .h-sm-100 {
+    height: 100%;
+  }
+}
+
+.b-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.b-divider {
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid rgba(150, 150, 150, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.chip input[type="checkbox"] {
+  display: none;
+}
+
+.chip span {
+  margin-left: 4px;
+}
+
+.chip input[type="checkbox"]:checked+span {
+  font-weight: bold;
+}
+
+.chip input[type="checkbox"]:checked+span {
+  color: rgb(0, 0, 50);
+  background-color: #ffc107;
+  padding: 2px;
+
+}
+
+.chip:hover {
+  background-color: #c0c0c0;
+}
+.servicecard:hover {
+  background-color: #f0f0f0;
+}
+
+
+.bg-pytr-blue {
+  background-color: #0070d3;
+}
+.bg-pytr-blue-1 {
+  background-color: #79b0df;
+}
+
+.bg-pytr-yellow {
+  background-color: #ffd55e;
+}
+.bg-pytr-orange1 {
+  background-color: #eee5da;
+}
+.bg-pytr-orange2 {
+  background-color: #e2d9cd;
+}
+
+.text-pytr-blue {
+  color: #0070d3;
+}
+
+.text-pytr-yellow {
+  color: #ffd55e;
+}
+
+bg-transparent{
+  background-color: rgba(0, 0, 0, 0);
+}
+a.pytr-tag:hover{
+  background-color: #ffd55e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+input.pytr-shadow:hover{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.jobseeker{
+  margin-top: 40px;
+}
+.jobseeker-create{
+  margin-top: 40px;
+}
+

@@ -1,0 +1,29 @@
+<div id="carouselID{{slider_objects.0.pk}}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for slide_obj in slider_objects %}
+        <button type="button" data-bs-target="#carouselID{{slider_objects.0.pk}}" data-bs-slide-to="{{forloop.counter0}}"
+            class="{% if forloop.first %}active{% endif %}"
+            aria-current="{% if forloop.first %}true{% endif %}"
+            aria-label="Slide{{slide_obj.index}}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for slide_obj in slider_objects %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}"
+            data-bs-interval="{{slide_obj.interval}}" style="min-height: 18rem;max-height: 18rem;">
+            {% if slide_obj.image %}
+            <img src="{{slide_obj.image.url}}" class="d-block w-100 img-fluid"
+                alt="{{slide_obj.id}}">
+            {% endif %}
+            <div class="carousel-caption bg-md-light-blue-900">
+                {% if slide_obj.title %}
+                <h5>{{slide_obj.title}}</h5>
+                {% endif %}
+                {% if slide_obj.description %}
+                <p>{{slide_obj.description}}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{% extends 'core.html'%}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block core_body %}
+<div class="card rounded-3 bg-light">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-6 col-md-12 col-sm-12 col-xs-12 d-none d-lg-block">
+                <div class="m-2">
+                    <img src="{% static 'assets/megaphone.png' %}" alt="login-logo-post"
+                        class="img-thumbnail alert bg-dark">
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="p-2">
+                    <form method="POST" class="my-2">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom">{{ _('Login') }}</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-warning border border-dark" type="submit">{{_('Login')}}</button>
+                        </div>
+                    </form>
+                    <div class="my-4 bottom-right align-items-end">
+                        <a class="text-decoration-none" href="{% url 'users:register' %}">
+                            {{_("Don't have an account? Register")}}
+                        </a>
+                    </div>
+                    <div class="my-4 bottom-right align-items-end">
+                        <a class="text-decoration-none" href="{% url 'password_reset' %}">
+                            {{_("Forgot password?")}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

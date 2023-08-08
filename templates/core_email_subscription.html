@@ -1,0 +1,33 @@
+{% load static %}
+{% load i18n %}
+{% load general_tags %}
+
+<div class="card text-center bg-md-blue-grey-50 text-muted">
+    <div class="card-title text-center  p-1">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        {{_("Free Email Resources")}}
+    </div>
+    <div class="card-body">
+        <form action="{% url 'core:email-subscription' %}" method="post" class="">
+            {% csrf_token %}
+            <div class="mb-3 p-2">
+                <input type="email" name="email" class="form-control form-control-sm"
+                    placeholder="{{_('Example; abraham@adnankaya.example.com')}}" aria-label="Email"
+                    aria-describedby="btnEmailSubs">
+                <p class="my-2 ">
+                    {{_("Subscribe to our email newsletter to get the resources that will level up your skills.")}}
+                </p>
+                <button class="btn btn-warning mt-4" type="submit" id="btnEmailSubs">
+                    <i class="fa-solid fa-envelope-circle-check"></i>
+                    {{_("Subscribe")}}
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        <i class="fa-solid fa-info-circle"></i>
+        <small class="">
+            {{_("No spam, unsubscribe anytime")}}
+        </small>
+    </div>
+</div>

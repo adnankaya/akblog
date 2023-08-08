@@ -1,0 +1,101 @@
+{% extends "post/base.html" %}
+{% load i18n %}
+
+
+{% block base_core %}
+{% block core_header %}
+{% include "header.html" %}
+{% endblock core_header %}
+<div class="row">
+    {% for package in packages %}
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-2">
+        <div class="card shadow-sm" style="min-height: 300px;">
+            <div class="card-header {{package.css_class}}">
+                <h5>
+                    {{package.name}}
+                </h5>
+                {% if user.is_superuser %}
+                <small>
+                    {{_("Per Price: ")}} {{package.price_per}} {{package.currency_symbol}}
+                </small>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <span class="text-muted">
+                    {{package.description}}
+                </span>
+                <br>
+                <br>
+                <small class="d-flex justify-content-start">
+                    <span class="badge badge-pill bg-dark">
+                        {{package.amount}}
+                        {{_("Amount")}}
+                    </span>
+                    <i class="bi bi-plus"></i>
+                    <span class="badge badge-pill bg-primary">
+                        {{package.gift}}
+                        {{_("Gift")}}
+                    </span>
+                </small>
+                <br>
+                <span class="text-muted">
+                    {{ package.days_delta }} {{_("days for due.")}}
+                </span>
+            </div>
+            <div class="card-footer">
+                <div class="row d-flex justify-content-around">
+                    <div class="col">
+                        <span class="badge badge-pill fs-5 bg-light text-dark">
+                            <small class="text-decoration-line-through">
+                                {{package.get_actual_cost}}
+                            </small>
+                        </span>
+                        {% if user.is_superuser %}
+                        <small class="badge bg-success my-1">
+                            {{_("Discount: ")}} {{package.discount}} {{package.currency_symbol}}
+                        </small>
+                        {% endif %}
+                        <span class="badge badge-pill fs-5 bg-warning text-dark">
+                            {{package.get_total_cost}}
+                            {{package.currency_symbol}}
+                        </span>
+                    </div>
+                    <div class="col">
+                        {% comment %}
+                        <!-- Payment integration in future! -->
+                        <a href="" class="btn btn-warning">
+                            <i class="bi bi-cart-fill"></i>
+                            {{_("Purchase!")}}
+                        </a>
+                        {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="card my-4">
+    <div class="card-header bg-warning text-dark">
+
+        {{_("Please send us a message via")}}
+        <i class="fs-5 bi bi-whatsapp"></i> WhatsApp,
+        <i class="fs-5 bi bi-telegram"></i> Telegram
+        or
+        <i class="fs-5 bi bi-envelope-fill"></i> Mail
+        {{_(" for the package you want to buy!")}}
+
+    </div>
+    <div class="card-body">
+        {% include "post/packages/contact.html" %}
+    </div>
+</div>
+
+
+{% block core_footer %}
+{% include "footer.html" %}
+{% endblock core_footer %}
+
+{% endblock base_core %}

@@ -1,0 +1,37 @@
+{% extends "core.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block base_core %}
+{% block core_header %}
+{% include "header.html" %}
+{% endblock core_header %}
+<div class="row my-2">
+    <div class="col">
+        {% if about %}
+        <div class="card shadow-sm">
+            <div class="card-header alert alert-warning">
+                <h5>
+                    {{about.title}}
+                </h5>
+            </div>
+            <div class="card-body">
+                <p>
+                    {{about.description|safe}}
+                </p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div class="m-2">
+    {% include "home/mainservices.html" %}
+</div>
+
+{% block core_body %}
+
+{% endblock core_body %}
+{% block core_footer %}
+{% include "footer.html" %}
+{% endblock core_footer %}
+{% endblock base_core %}

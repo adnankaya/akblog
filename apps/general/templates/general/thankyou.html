@@ -1,0 +1,18 @@
+{% extends "core.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block core_body %}
+
+<div class="row mb-4 mt-1">
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <p>
+                    {{thankyou.text|safe}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock core_body %}

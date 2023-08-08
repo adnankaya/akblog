@@ -1,0 +1,43 @@
+{% extends "post/base.html" %}
+{% load i18n %}
+
+
+{% block post_body %}
+
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                {% include "post/searchbox.html" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% include "post/filterbox.html" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% for post in paginated_posts %}
+                <div class="mb-3">
+                    {% include "post/post_item.html" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    {% include "pagination.html" with page=paginated_posts %}
+</div>
+
+{% endblock post_body %}
+
+{% comment %}
+{% block core_rightbar %}
+{% include "post/post_rightbar.html" %}
+{% endblock core_rightbar %}
+
+{% endcomment %}

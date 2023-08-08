@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+<form method="POST" enctype="multipart/form-data" lang="tr">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <div class="">
+            {{ form|crispy }}
+            {% include "post/post_image_upload_form.html" %}
+        </div>
+    </fieldset>
+    <div class="form-group d-grid gap-2 mx-auto my-2 shadow-sm">
+        <div id="postUpdateAlertDiv"></div>
+        <button class="btn btn-warning" type="submit" id="btnPostUpdate">
+            <strong>
+                <i class="fs-5 bi bi-check"></i>
+                {{_("Update")}}
+            </strong>
+        </button>
+    </div>
+</form>

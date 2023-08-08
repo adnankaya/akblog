@@ -1,0 +1,34 @@
+{% load static %}
+{% load i18n %}
+{% load general_tags %}
+
+{% get_rightbar1_slides as r1_slide_objects %}
+{% if r1_slide_objects %}
+<div class="row mb-2">
+    <div class="col" style="min-height: 300px; max-height: 300px;">
+        <div class="card text-center bg-dark">
+            {% include "slider.html" with slider_objects=r1_slide_objects %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% get_rightbar2_slides as r2_slide_objects %}
+{% if r2_slide_objects %}
+<div class="row mb-2">
+    <div class="col" style="min-height: 300px; max-height: 300px;">
+        <div class="card text-center bg-dark">
+            {% include "slider.html" with slider_objects=r2_slide_objects %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% get_rightbar3_slides as r3_slide_objects %}
+{% if r3_slide_objects %}
+<div class="row mb-2">
+    <div class="col" style="min-height: 300px; max-height: 300px;">
+        <div class="card text-center bg-dark">
+            {% include "slider.html" with slider_objects=r3_slide_objects %}
+        </div>
+    </div>
+</div>
+{% endif %}

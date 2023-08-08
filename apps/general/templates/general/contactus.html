@@ -1,0 +1,64 @@
+{% extends "core.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block core_body %}
+
+<div class="row mb-4 mt-1">
+    <div class="col">
+        <div class="bg-pytr-yellow p-2 rounded text-center">
+            <i class="fa-solid fa-laptop-code fs-3"></i>
+            <h4>
+                {{_("To take private programming lessons from us, you can contact us via email or social accounts.")}}
+            </h4>
+        </div>
+    </div>
+</div>
+<div class="row mb-3">
+    {% if website.phone_set.exists %}
+    <div class="col-12 mb-2">
+        <div class="card p-0 border-dark">
+            <div class="card-header">{{_("Phone")}}</div>
+            <div class="card body p-1">
+                {% for phone in website.phone_set.all %}
+                <span class="mb-4">
+                    <i class="bi bi-telephone"></i>
+                    {{phone.number.as_national}}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="col-12">
+        <div class="card p-0">
+            <div class="card-header fs-5">{{_("Email")}}</div>
+            <div class="card body p-2">
+                {% for email_obj in website.mail_set.all %}
+                <span class="mb-4">
+                    <i class="bi bi-envelope-fill"></i>
+                    {{email_obj.email}}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-2">
+        <div class="card" style="min-height: 120px;">
+            <div class="card-header fs-5">{{_("Social Media Accounts")}}</div>
+            <div class="card-body p-3">
+                <div class="mb-4 d-flex justify-content-between">
+                    {% for account in website.socialaccounts.all %}
+                    <a href="https://{{ account.get_url }}" class="text-decoration-none" target="_blank">
+                        <i class="fs-3 bi bi-{{account.slug}} p-2 shadow rounded-3"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock core_body %}
+{% block core_rightbar %}
+<!-- to override core rightbar -->
+{% endblock core_rightbar %}

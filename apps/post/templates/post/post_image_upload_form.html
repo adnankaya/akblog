@@ -1,0 +1,77 @@
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+<div class="card" {% if remaining_image_upload == 0 %}hidden{% endif %}>
+    <div class="card-header">
+        <h6>
+            {{post.postimage_set.count}} {{_(" images uploaded.")}}
+            <br>
+            {{remaining_image_upload}} {{_(" images can be added.")}}
+            <br>
+            {{_("Max image ")}} {{total_image_upload}} {{_(" can be uploaded")}}
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="postImages" class="form-label">{{_("Select Iamges")}}</label>
+            <input name="images" type="file" class="form-control" accept="image/*" id="postImages" multiple lang="tr"
+                onchange="loadFile(event)" {% if remaining_image_upload == 0 %}disabled{% endif %}>
+            <div id="output" class="my-2">
+            </div>
+        </div>
+        <input type="hidden" name="" id="remainingImageUpload" value="{{remaining_image_upload}}">
+    </div>
+</div>
+
+
+<script>
+    var loadFile = function (event) {
+        var div_output = document.getElementById('output');
+        const files = event.target.files;
+        postUpdateAlertDiv = document.getElementById("postUpdateAlertDiv");
+        remainingImageUpload = document.getElementById("remainingImageUpload");
+        // alert for remaining image upload
+        if (files.length > parseInt(remainingImageUpload.value)) {
+            div_alert_image_size = document.createElement("div");
+            div_alert_image_size.classList.add("my-2")
+            div_alert_image_size.classList.add("alert")
+            div_alert_image_size.classList.add("alert-danger")
+            div_alert_image_size.classList.add("text-dark")
+            alert_text_strong = document.createElement("strong");
+            alert_text_strong.innerText = `Only ${remainingImageUpload.value} images you can upload!`
+            div_alert_image_size.appendChild(alert_text_strong);
+            btnPostUpdate = document.getElementById("btnPostUpdate");
+            btnPostUpdate.disabled = true;
+
+            postUpdateAlertDiv.append(div_alert_image_size);
+            return;
+        } else {
+            // remaining image upload is ok then the user can submit form
+            btnPostUpdate.disabled = false;
+            // remove post update alert div child elements
+            postUpdateAlertDiv.replaceChildren();
+        }
+        // preview selected images
+        previewSelectedImages(files, div_output);
+
+    };
+
+    function previewSelectedImages(files, div_output) {
+        if (files && files.length) {
+            for (let index = 0; index < files.length; index++) {
+                const element = files[index];
+                img = document.createElement("img");
+                img.src = URL.createObjectURL(element)
+                img.alt = element["name"];
+                img.classList.add("img-thumbnail");
+                img.classList.add("m-1");
+                img.style = "max-width: 200px; max-height:200px;"
+                div_output.append(img);
+                img.onload = function () {
+                    URL.revokeObjectURL(img.src) // free memory
+                }
+            }
+
+        }
+    }
+</script>

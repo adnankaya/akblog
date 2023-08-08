@@ -1,0 +1,25 @@
+{% extends 'core.html'%}
+{% load static %}
+{% load i18n %}
+{% block base_core %}
+<div class="row my-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-header alert alert-success">
+                <h5>
+                    {{_("Thanks")}}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="">
+                    <h4>
+                        {{_("Your email confirmed!")}}
+                    </h4>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+{% endblock base_core %}

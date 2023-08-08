@@ -1,0 +1,52 @@
+{% load i18n %}
+<!-- Button trigger modal -->
+<button type="button" class="btn bt-sm badge rounded-pill text-bg-secondary" data-bs-toggle="modal"
+    data-bs-target="#flagPostModal-{{post.pk}}">
+    <small>
+        <i class="bi bi-flag-fill"></i>
+        {{_("Report")}}
+    </small>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="flagPostModal-{{post.pk}}" tabindex="-1" aria-labelledby="flagPostModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'post:flag-post' pk=post.pk %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="flagPostModalLabel">{{_("Report")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="my-2 alert alert-secondary">
+                        <small>
+                            <b>
+                                {{_("Post")}}:
+                            </b>
+                            {{post.title}}
+                        </small>
+                        <br>
+                        <small>
+                            <b>
+                                {{_("Published by")}}:
+                            </b>
+                            {{post.created_by.get_full_name}}
+                        </small>
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea name="reason" class="form-control" placeholder="" id="idAbout"
+                            style="height: 100px"></textarea>
+                        <label for="idAbout">{{_("Please tell us more..")}}</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-warning">{{_("Report")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="card mb-2" style="width: 20rem;">
+    <div class="card-title p-2 d-flex">
+        {% if dev.linkedin_pp_url %}
+        <img src="{{dev.linkedin_pp_url}}" style="width: 64px; height: 64px;"
+            class="card-img-top rounded rounded-circle" alt="Profile Picture">
+        {% endif %}
+        <div class="d-flex">
+            <strong class="m-1">
+                {{dev.user.get_full_name}}
+            </strong>
+            <br>
+        </div>
+    </div>
+    <div class="card-body">
+        <span class="m-1 text-muted">
+            <i class="fa-solid fa-user-tie"></i>
+            {{dev.job_title}}
+        </span>
+        <br>
+        <span class="m-1 text-muted">
+            <i class="fa-solid fa-envelope"></i>
+            {{dev.user.email}}
+        </span>
+        <br>
+        <small class="m-1 text-muted">
+            <i class="fa-solid fa-laptop-code"></i>
+            {{_("Experience ")}} : {{dev.experience_years}} {{_(" years")}}
+        </small>
+        <br>
+        <br>
+        <span class="mt-2">
+            <a class="m-1 text-decoration-none" target="_blank" href="{{dev.linkedin}}">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a class="m-1 text-decoration-none text-dark bg-light" target="_blank" href="{{dev.github}}">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="m-1 text-decoration-none text-primary bg-light" target="_blank" href="{{dev.twitter}}">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="m-1 text-decoration-none text-danger bg-light" target="_blank" href="{{dev.website}}">
+                <i class="fa-solid fa-globe"></i>
+            </a>
+        </span>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">
+            {% for skill in dev.skills.all %}
+            <span class="badge text-bg-white text-muted">{{skill.name}}</span>
+            {% endfor %}
+        </small>
+    </div>
+</div>

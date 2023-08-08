@@ -1,0 +1,26 @@
+{% extends "core.html" %}
+{% block base_core %}
+{% block core_body %}
+<div class="container-xxl">
+
+    <div class="row mt-4">
+        <div class="col">
+            {% block developers_body %}
+            {% endblock developers_body %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock core_body %}
+
+<!-- override email subscription -->
+{% block core_email_subscription %}
+{% endblock core_email_subscription %}
+
+<!-- override rightbar -->
+{% block core_rightbar %}
+{% include "rightbar.html" %}
+{% endblock core_rightbar %}
+
+{% endblock base_core %}

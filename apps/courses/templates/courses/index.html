@@ -1,0 +1,98 @@
+{% extends "courses/base.html" %}
+{% load i18n %}
+
+
+{% block courses_body %}
+{% if paginated_courses %}
+<div class="row">
+    {% for course in paginated_courses %}
+    <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-title p-3">
+                <h5>
+                    <a href="{{ course.get_absolute_url }}" class="text-decoration-none ">
+                        <i class="bi bi-collection-play-fill"></i>
+                        <span class="">
+                            {{ course.title }}
+                        </span>
+                    </a>
+                    
+                </h5>
+            </div>
+            <div class="card-body">
+                <iframe class="w-100 h-100" style="min-height: 18rem;" src="{{course.intro_url}}"
+                    title="{{course.title}}" frameborder="0" allowfullscreen>
+                </iframe>
+                <div class="row mt-3">
+                    <div class="col">
+                        <span>
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <span>
+                                {{ course.tutor.get_full_name }}
+                            </span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-film"></i>
+                            <span>
+                                {{ course.lesson_count }}
+                                {{_("Lectures")}}
+                            </span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-clock"></i>
+                            <span>
+                                <span>
+                                    {{ course.duration }}
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        {{ course.description|safe|truncatechars:280 }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <small class="tags">
+                            <i class="bi bi-tags-fill"></i>
+                            {% for tag in course.get_tags %}
+                            <a class="text-decoration-none badge badge-pill bg-dark text-white"
+                            href="{% url 'courses:courses-index' %}?tag={{tag}}"
+                                >
+                                {{ tag.name }}
+                            </a>
+                            {% if not forloop.last %} {% endif %}
+                            {% endfor %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <card class="footer d-flex justify-content-center my-2">
+                <a href="{{ course.get_absolute_url }}" class="btn btn-outline-dark text-decoration-none ">
+                    <i class="fs-5 bi bi-file-play-fill"></i>
+                    <span class="">
+                        {{_("Start Now")}}
+                    </span>
+                </a>
+
+            </card>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="row">
+    <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="alert alert-warning text-center">
+            <h3>
+                <i class="fa-solid fa-warning"></i>
+                <span>{{_("Courses not found!")}}</span>
+            </h3>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock courses_body %}

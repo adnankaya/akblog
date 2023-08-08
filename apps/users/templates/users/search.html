@@ -1,0 +1,39 @@
+{% extends "core.html" %}
+{% load i18n %}
+
+{% block title %}{{_('Search Page')}}{% endblock %}
+
+{% block core_body %}
+
+<div class="card">
+    <h5 class="card-title alert alert-secondary p-3">{{_('Search for users')}}</h5>
+    <div class="card-body">
+        <form class="d-flex justify-content-around row" method="GET" action="{% url 'users:user-search' %}">
+            <div class="col-lg-11">
+                <input class="form-control me-2" value="{%if query%}{{query}}{%endif%}" type="search" name="query"
+                    placeholder="{{_('Search')}}" aria-label="Search" />
+
+            </div>
+            <div class="col-lg-1">
+                <button class="btn btn-sm btn-outline-dark btn-sm my-1" type="submit">{{_('Search')}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="my-1">
+    <small>{{ elapsed_time }} {{ _('seconds')}}</small>
+</div>
+<div class="list-group">
+    {% for user in users %}
+    <div class="list-group-item">
+        <h4><a href="{% url 'users:profile' user.username %}">{{ user.username }}</a></h4>
+    </div>
+    {% empty %}
+    <p class="text-white">{{_('There are no results for your search.')}}</p>
+    {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,1007 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-13 00:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps/aboutus/models.py:14 apps/aboutus/models.py:15
+msgid "About us"
+msgstr "Hakkımızda"
+
+#: apps/aboutus/models.py:30
+msgid "Main Service"
+msgstr "Ana Hizmet"
+
+#: apps/aboutus/models.py:31
+msgid "Main Services"
+msgstr "Ana Hizmetler"
+
+#: apps/aboutus/models.py:46
+msgid "Service"
+msgstr "Hizmet"
+
+#: apps/aboutus/models.py:47
+msgid "Services"
+msgstr "Hizmetler"
+
+#: apps/core/management/commands/init_terms_of_use.py:38
+#: apps/users/templates/users/register.html:31 templates/_navbar.html:93
+#: templates/footer.html:17 templates/sidebar_sticky.html:42
+msgid "Terms of Use"
+msgstr "Kullanım Koşulları"
+
+#: apps/core/views.py:25
+msgid "Thank you for joining our email newsletter!"
+msgstr ""
+
+#: apps/courses/templates/courses/detail.html:39
+#: apps/courses/templates/courses/index.html:38
+#: apps/developers/templates/developers/detail.html:39
+msgid "Lectures"
+msgstr "Dersler"
+
+#: apps/courses/templates/courses/index.html:76
+msgid "Start Now"
+msgstr "Şimdi Başla"
+
+#: apps/courses/templates/courses/index.html:91
+msgid "Courses not found!"
+msgstr "Kurs bulunamadı!"
+
+#: apps/courses/views.py:22
+msgid "Courses not found with this tag! See others."
+msgstr "Bu etiketle ilgili kurs bulunamadı! Diğerlerine göz atın."
+
+#: apps/courses/views.py:54
+msgid "Could not find the course!"
+msgstr "Kurs bulunamadı!"
+
+#: apps/developers/services.py:23
+msgid "Email is already exist!"
+msgstr "Email zaten mevcut!"
+
+#: apps/developers/services.py:43
+msgid "Maximum skill number is {}"
+msgstr "Maksimum yetenek sayısı {}"
+
+#: apps/developers/templates/developers/create.html:9
+msgid ""
+"By joining the developer job seekers dashboard, you accept the terms of use "
+"and receive emails."
+msgstr ""
+"İş arayanlar panosuna kaydolarak kullanım koşullarını ve sitemizden email "
+"almayı kabul etmiş sayılırsınız."
+
+#: apps/developers/templates/developers/create.html:19
+msgid "Fill in the form to join the developer job seekers board."
+msgstr "İş arayanlar panosuna kaydolmak için formu doldurunuz."
+
+#: apps/developers/templates/developers/create.html:27
+#: apps/developers/templates/developers/create.html:29 apps/users/forms.py:43
+msgid "Firstname"
+msgstr "Ad"
+
+#: apps/developers/templates/developers/create.html:34
+#: apps/developers/templates/developers/create.html:36 apps/users/forms.py:44
+msgid "Lastname"
+msgstr "Soyad"
+
+#: apps/developers/templates/developers/create.html:43
+msgid "Experience Years"
+msgstr "Tecrübe Yılı"
+
+#: apps/developers/templates/developers/create.html:46
+msgid "Ex; 5"
+msgstr "Ör; 5"
+
+#: apps/developers/templates/developers/create.html:53
+#: apps/general/templates/general/contactus.html:35
+#: apps/post/templates/post/packages/contact.html:18 apps/users/forms.py:31
+#: apps/users/forms.py:42 apps/users/models.py:17
+msgid "Email"
+msgstr "Email"
+
+#: apps/developers/templates/developers/create.html:54
+msgid "Ex; abraham@adnankaya.example.com"
+msgstr "Örneğin; ibrahim@adnankaya.example.com"
+
+#: apps/developers/templates/developers/create.html:61
+msgid "Job Title"
+msgstr "Ünvan"
+
+#: apps/developers/templates/developers/create.html:63
+msgid " Ex; Python Web Developer"
+msgstr "Ör; Python Web developer"
+
+#: apps/developers/templates/developers/create.html:72
+msgid "Linkedin URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:75
+msgid "Linkedin profile URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:82
+msgid "Github URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:85
+msgid "Github profile URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:90
+msgid "Website URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:93
+msgid "Your website URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:100
+msgid "Twitter URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:103
+msgid "Twitter profile URL"
+msgstr ""
+
+#: apps/developers/templates/developers/create.html:113
+msgid "Profile Picture URL"
+msgstr "Profil Fotoğraf URL"
+
+#: apps/developers/templates/developers/create.html:116
+msgid "Profile Picture URL. Ex; Linkedin profile picture URL"
+msgstr "Profil Fotoğraf URL. Ör; Linkedin profil fotoğrafı URLsi"
+
+#: apps/developers/templates/developers/create.html:123
+msgid "Click skills to add."
+msgstr "Eklemek için yeteneklere tıklayın."
+
+#: apps/developers/templates/developers/create.html:141
+#: apps/post/templates/post/new.html:160
+#: apps/users/templates/users/password_reset.html:15
+#: apps/users/templates/users/password_reset_confirm.html:13
+#: apps/users/templates/users/rate_star.html:43
+msgid "Submit"
+msgstr "Gönder"
+
+#: apps/developers/templates/developers/dev-card.html:27
+msgid "Experience "
+msgstr "Tecrübe"
+
+#: apps/developers/templates/developers/dev-card.html:27
+msgid " years"
+msgstr " yıl"
+
+#: apps/developers/templates/developers/index.html:11
+msgid "Join Developer Job Seekers Board"
+msgstr "İş Arayanlar Panosuna Katılın"
+
+#: apps/developers/templates/developers/index.html:30
+msgid "devs not found!"
+msgstr "developers bulunamadı!"
+
+#: apps/developers/views.py:51
+msgid ""
+"You joined to the developers board. To be displayed in board please verify "
+"your email"
+msgstr ""
+"İş arayanlar panosuna katıldınız. Panoda görülebilmek için lütfen email "
+"adresinizi doğrulayın"
+
+#: apps/general/models.py:17
+msgid "header"
+msgstr ""
+
+#: apps/general/models.py:18
+msgid "rightbar1"
+msgstr ""
+
+#: apps/general/models.py:19
+msgid "rightbar2"
+msgstr ""
+
+#: apps/general/models.py:20
+msgid "rightbar3"
+msgstr ""
+
+#: apps/general/models.py:26
+msgid "Slide Image"
+msgstr ""
+
+#: apps/general/templates/general/contactus.html:12
+msgid ""
+"To take private programming lessons from us, you can contact us via email or "
+"social accounts."
+msgstr ""
+"Bizden yazılım, programlama özel dersleri almak için, email veya sosyal "
+"medya üzerinden iletişime geçebilirsiniz."
+
+#: apps/general/templates/general/contactus.html:21
+#: apps/post/templates/post/packages/contact.html:5 apps/users/forms.py:56
+msgid "Phone"
+msgstr "Telefon"
+
+#: apps/general/templates/general/contactus.html:48
+msgid "Social Media Accounts"
+msgstr "Sosyal Medya Hesapları"
+
+#: apps/home/templates/home/base.html:9
+msgid "Welcome to Turkey's Python content platform!"
+msgstr "Türkiye'nin Python içerik platformuna hoş geldiniz!"
+
+#: apps/home/templates/home/base.html:12
+msgid ""
+"On this platform, which opens the doors of the Python world, you can access "
+"completely Turkish resources to discover the power of Python."
+msgstr "Python dünyasının kapılarını aralayan bu platformda,"
+" Python'un gücünü keşfetmek için tamamen Türkçe kaynaklara erişebilirsiniz."
+
+#: apps/home/templates/home/base.html:17 templates/_navbar.html:56
+#: templates/footer.html:13
+msgid "Blog"
+msgstr ""
+
+#: apps/home/templates/home/base.html:21 templates/_navbar.html:24
+#: templates/footer.html:37 templates/sidebar_sticky.html:49
+msgid "Courses"
+msgstr "Kurslar"
+
+#: apps/home/templates/home/mainservices.html:5
+msgid "How to benefit from this site?"
+msgstr "Bu siteden nasıl faydalanabilirsiniz?"
+
+#: apps/home/templates/home/mainservices.html:28
+msgid "Browse >>"
+msgstr "Gözat >>"
+
+#: apps/post/forms.py:15 apps/post/templates/post/new.html:35
+msgid "Title"
+msgstr "Başlık"
+
+#: apps/post/forms.py:16 apps/post/models.py:163
+#: apps/post/templates/post/new.html:41
+msgid "Description"
+msgstr "Açıklama"
+
+#: apps/post/forms.py:17 apps/post/templates/post/new.html:53
+msgid "Category"
+msgstr "Kategori"
+
+#: apps/post/forms.py:27 apps/post/templates/post/new.html:47
+msgid "Tags"
+msgstr "Etiketler"
+
+#: apps/post/forms.py:37
+msgid "Tags must be min 2 and max 5"
+msgstr "Etiketler minimum 2, maksimum 5 adet olmalı"
+
+#: apps/post/models.py:134
+msgid "Image"
+msgstr "Resim"
+
+#: apps/post/models.py:165
+msgid "Total Amount"
+msgstr "Toplam Adet"
+
+#: apps/post/models.py:166 apps/post/templates/post/packages/index.html:37
+msgid "Gift"
+msgstr "Hediye"
+
+#: apps/post/models.py:168
+msgid "Days for Due"
+msgstr "Kalan Günler"
+
+#: apps/post/models.py:172
+msgid "Price Per"
+msgstr "Birim Fiyat"
+
+#: apps/post/models.py:174
+msgid "Discount"
+msgstr "İndirim"
+
+#: apps/post/models.py:220
+msgid "Due Date"
+msgstr "Bitiş Tarihi"
+
+#: apps/post/services.py:57
+msgid "Tags must be min 2, max 5."
+msgstr "Etiketler minimum 2, maksimum 5 olmalı."
+
+#: apps/post/services.py:71
+#, python-brace-format
+msgid ""
+"\n"
+"                    Only {remaining_image_upload} images can be uploaded.\n"
+"                    Images can be maximum {settings.MAX_POST_IMAGES_LEN}.\n"
+"                    "
+msgstr ""
+
+#: apps/post/services.py:81
+msgid "Uploaded images!"
+msgstr "Resimler yüklendi!"
+
+#: apps/post/services.py:84
+msgid "Error! images could not be uploaded!"
+msgstr "Hata! resimler yüklenemedi!"
+
+#: apps/post/templates/post/delete_post.html:6
+msgid "Delete Post"
+msgstr "Yayını Sil"
+
+#: apps/post/templates/post/delete_post.html:17
+msgid "Please confirm!"
+msgstr "Lütfen doğrulayın!"
+
+#: apps/post/templates/post/delete_post.html:22
+msgid "Are you sure to delete the post?"
+msgstr "Yazıyı silmek istediğinize emin misiniz?"
+
+#: apps/post/templates/post/delete_post.html:27
+#: apps/post/templates/post/flag_post.html:46
+#: apps/post/templates/post/post_image.html:47
+msgid "Close"
+msgstr "Kapat"
+
+#: apps/post/templates/post/delete_post.html:28
+msgid "Yes"
+msgstr "Evet"
+
+#: apps/post/templates/post/detail.html:30
+msgid "Error!"
+msgstr "Hata!"
+
+#: apps/post/templates/post/detail.html:34
+msgid "Post could not be found! Could be removed."
+msgstr "Yazı bulunamadı! Kaldırılmış olabilir."
+
+#: apps/post/templates/post/filterbox.html:5
+msgid "Filters"
+msgstr "Filtreler"
+
+#: apps/post/templates/post/filterbox.html:11
+msgid "Filter by category."
+msgstr "Kategoriye göre filtrele."
+
+#: apps/post/templates/post/filterbox.html:26
+msgid "Apply!"
+msgstr "Uygula!"
+
+#: apps/post/templates/post/flag_post.html:7
+#: apps/post/templates/post/flag_post.html:19
+#: apps/post/templates/post/flag_post.html:47
+msgid "Report"
+msgstr "Bildir"
+
+#: apps/post/templates/post/flag_post.html:26
+msgid "Post"
+msgstr "Yazı"
+
+#: apps/post/templates/post/flag_post.html:33
+msgid "Published by"
+msgstr "Yayınlayan"
+
+#: apps/post/templates/post/flag_post.html:42
+msgid "Please tell us more.."
+msgstr "Lütfen daha fazla açıklama yapınız.."
+
+#: apps/post/templates/post/new.html:9
+msgid "Create New Post"
+msgstr "Yeni Yazı Oluştur"
+
+#: apps/post/templates/post/new.html:14
+msgid "Please confirm your email to activate your published post."
+msgstr ""
+"Lütfen email adresinizi doğrulayın ve yayınlanan yazıları aktif hale getirin."
+
+#: apps/post/templates/post/new.html:19
+msgid "You can click here"
+msgstr "Buraya tıklayabilirsiniz."
+
+#: apps/post/templates/post/new.html:21
+msgid "to request confirmation mail."
+msgstr "doğrulama mail isteği yapmak için"
+
+#: apps/post/templates/post/new.html:64
+msgid "Please enter the title of the post"
+msgstr "Lütfen yayın başlığını giriniz."
+
+#: apps/post/templates/post/new.html:75
+msgid "Please enter the description of the post"
+msgstr "Lütfen yayın açıklamasını giriniz."
+
+#: apps/post/templates/post/new.html:85
+msgid "Tag 1"
+msgstr "Etiket 1"
+
+#: apps/post/templates/post/new.html:92
+msgid "Tag 1 Mandatory"
+msgstr "Etiket 1 Zorunludur."
+
+#: apps/post/templates/post/new.html:98
+msgid "Tag 2"
+msgstr "Etiket 2"
+
+#: apps/post/templates/post/new.html:105
+msgid "Tag 2 Mandatory"
+msgstr "Etiket 2 Zorunludur"
+
+#: apps/post/templates/post/new.html:111
+msgid "Tag 3 (optional)"
+msgstr "Etiket 3 (opsiyonel)"
+
+#: apps/post/templates/post/new.html:120
+msgid "Tag 4 (optional)"
+msgstr "Etiket 4 (opsiyonel)"
+
+#: apps/post/templates/post/new.html:129
+msgid "Tag 5 (optional)"
+msgstr "Etiket 5 (opsiyonel)"
+
+#: apps/post/templates/post/new.html:142
+msgid "Select category"
+msgstr "Kategori seçiniz"
+
+#: apps/post/templates/post/new.html:152
+msgid "You must select the category."
+msgstr "Kategori seçmelisiniz."
+
+#: apps/post/templates/post/new.html:172
+msgid "You can upload images for the post in the post detail page. "
+msgstr "Yazı detay sayfasında yayına ait resimler yükleyebilirsiniz."
+
+#: apps/post/templates/post/new.html:173
+msgid "In the Update Post section."
+msgstr "Yazı Güncelle bölümünden."
+
+#: apps/post/templates/post/new.html:176
+msgid "Tags are important for the post to be found easily."
+msgstr ""
+"Etiketler yazınızın kolayca bulunabilmesi, görülebilmesi için önemlidir."
+
+#: apps/post/templates/post/new.html:177
+msgid "At least 2 tags are mandatory!"
+msgstr "En az 2 etiket girilmesi zorunludur."
+
+#: apps/post/templates/post/packages/index.html:19
+msgid "Per Price: "
+msgstr "Birim Fiyat: "
+
+#: apps/post/templates/post/packages/index.html:32
+msgid "Amount"
+msgstr "Miktar"
+
+#: apps/post/templates/post/packages/index.html:42
+msgid "days for due."
+msgstr "kalan günler."
+
+#: apps/post/templates/post/packages/index.html:55
+msgid "Discount: "
+msgstr "İndirim"
+
+#: apps/post/templates/post/packages/index.html:84
+msgid "Please send us a message via"
+msgstr "Lütfen bize mesaj göndermek için"
+
+#: apps/post/templates/post/packages/index.html:89
+msgid " for the package you want to buy!"
+msgstr " satın almak istediğiniz paket için"
+
+#: apps/post/templates/post/post_contact.html:7 templates/_navbar.html:88
+#: templates/footer.html:27 templates/sidebar_sticky.html:37
+msgid "Contact"
+msgstr "İletişim"
+
+#: apps/post/templates/post/post_contact.html:28
+msgid "Last seen: "
+msgstr "Son görülme"
+
+#: apps/post/templates/post/post_contact.html:28
+msgid " ago"
+msgstr " önce"
+
+#: apps/post/templates/post/post_create_rules.html:7
+msgid "The rules to publish a post/ad"
+msgstr "Yazı yayınlamak için kurallar"
+
+#: apps/post/templates/post/post_edit.html:17
+msgid "Update"
+msgstr "Güncelle"
+
+#: apps/post/templates/post/post_image.html:9
+msgid "Delete"
+msgstr "Sil"
+
+#: apps/post/templates/post/post_image_upload_form.html:7
+msgid " images uploaded."
+msgstr " yüklenen resimler"
+
+#: apps/post/templates/post/post_image_upload_form.html:9
+msgid " images can be added."
+msgstr " resim eklenebilir."
+
+#: apps/post/templates/post/post_image_upload_form.html:11
+msgid "Max image "
+msgstr "Maksimum resim"
+
+#: apps/post/templates/post/post_image_upload_form.html:11
+msgid " can be uploaded"
+msgstr " yüklenebilir."
+
+#: apps/post/templates/post/post_image_upload_form.html:16
+msgid "Select Iamges"
+msgstr "Resimleri seçiniz"
+
+#: apps/post/templates/post/post_images.html:8
+msgid "Post Images"
+msgstr "Yazı Resimleri"
+
+#: apps/post/templates/post/post_similars.html:5
+msgid "Similar Posts"
+msgstr "Benzer Yazılar"
+
+#: apps/post/templates/post/searchbox.html:5
+msgid "Search..."
+msgstr "Ara..."
+
+#: apps/post/views.py:94
+msgid "Deleted successfully!"
+msgstr "Başarıyla silindi!"
+
+#: apps/post/views.py:98
+msgid "Updated successfully!"
+msgstr "Başarıyla güncellendi!"
+
+#: apps/post/views.py:109
+msgid "Could not found the post!"
+msgstr "Yazı bulunamadı!"
+
+#: apps/post/views.py:140
+msgid "Created new post successfully!"
+msgstr "Yeni yayın başarıyla oluşturuldu!"
+
+#: apps/post/views.py:165
+msgid "Image deleted."
+msgstr "Resim silindi."
+
+#: apps/post/views.py:179
+msgid "Thanks for reporting the post!"
+msgstr "Yazıyı bildirdiğiniz için teşekkürler!"
+
+#: apps/users/forms.py:55 apps/users/templates/users/profile_info.html:17
+msgid "About"
+msgstr "Hakkında"
+
+#: apps/users/forms.py:58
+msgid "Phone number format is wrong. Example format 5554443322"
+msgstr "Telefon numarası formatı yanlış. Örnek format 5554443322"
+
+#: apps/users/forms.py:75
+msgid "Example 5554442344"
+msgstr "Örnek 5554442344"
+
+#: apps/users/models.py:20
+msgid "Use different email address."
+msgstr "Başka bir email adresi deneyin."
+
+#: apps/users/models.py:24
+msgid "Agreement"
+msgstr ""
+
+#: apps/users/models.py:48
+msgid "New member"
+msgstr "Yeni üye"
+
+#: apps/users/services.py:59
+msgid "Email confirmation."
+msgstr "Email doğrulama."
+
+#: apps/users/templates/users/activate_user.html:3
+msgid "Hi"
+msgstr "Merhaba"
+
+#: apps/users/templates/users/activate_user.html:3
+msgid "We are excited for that you have joined us."
+msgstr "Aramıza katıldığınız için heyecanlıyız."
+
+#: apps/users/templates/users/activate_user.html:8
+msgid "Please click the following link to confirm your email:"
+msgstr "Lütfen aşağıdaki bağlantıya tıklayarak email adresinizi doğrulayın:"
+
+#: apps/users/templates/users/activate_user.html:18
+#: apps/users/templates/users/email_confirmation_done.html:10
+msgid "Thanks"
+msgstr "Teşekkürler"
+
+#: apps/users/templates/users/activate_user.html:20
+msgid "adnankaya.example.com team"
+msgstr "adnankaya.example.com takımı"
+
+#: apps/users/templates/users/email_confirmation_done.html:16
+msgid "Your email confirmed!"
+msgstr "Email adresiniz doğrulandı!"
+
+#: apps/users/templates/users/login.html:10
+msgid "Register for free and publish posts!"
+msgstr "Ücretsiz üye olun ve yayınlayın!"
+
+#: apps/users/templates/users/login.html:27
+#: apps/users/templates/users/login.html:31
+#: apps/users/templates/users/password_reset_complete.html:9
+#: apps/users/templates/users/register.html:57 templates/_navbar.html:124
+#: templates/sidebar_sticky.html:69
+msgid "Login"
+msgstr "Giriş Yapın"
+
+#: apps/users/templates/users/login.html:36
+msgid "Don't have an account? Register"
+msgstr "Hesabınız yok mu? Kaydolun"
+
+#: apps/users/templates/users/login.html:41
+msgid "Forgot password?"
+msgstr "Parolamı unuttum"
+
+#: apps/users/templates/users/myprofile.html:15
+msgid "Phone is required. Ex: 5554443322"
+msgstr "Telefon gereklidir. Örneğin 5554443322"
+
+#: apps/users/templates/users/myprofile.html:17
+msgid ""
+"Please enter phone number without starting 0 in the beginning. Example: "
+"5554443322"
+msgstr "Lütfen telefon numaranızı başında 0 olmadan giriniz. Ör 5554443322"
+
+#: apps/users/templates/users/myprofile.html:23
+msgid "Describe yourself"
+msgstr "Kendinizi tanıtın"
+
+#: apps/users/templates/users/myprofile.html:30
+#: apps/users/templates/users/profile.html:15
+msgid "Update Profile"
+msgstr "Profil Güncelle"
+
+#: apps/users/templates/users/password_reset.html:11
+#: apps/users/templates/users/password_reset_confirm.html:9
+msgid "Reset Password"
+msgstr "Parola Sıfırla"
+
+#: apps/users/templates/users/password_reset_complete.html:6
+msgid "Your password is set successfully!"
+msgstr "Yeni parolanız başarıyla oluşturuldu."
+
+#: apps/users/templates/users/password_reset_done.html:6
+msgid "To reset your password, instructions have been sent to your email."
+msgstr "Parola sıfırlamak için talimatlar email adresinize gönderildi."
+
+#: apps/users/templates/users/profile_info.html:13
+msgid "Joined at"
+msgstr "Kayıt tarihi"
+
+#: apps/users/templates/users/profile_posts.html:7
+msgid " Published posts by this user"
+msgstr " Bu kullanıcı tarafından yayınlanan yazılar"
+
+#: apps/users/templates/users/profile_posts.html:22
+msgid "This user did not publish a post yet!"
+msgstr "Bu kullanıcı henüz içerik yayınlamadı!"
+
+#: apps/users/templates/users/rate_star.html:10
+msgid "Rate"
+msgstr "Değerlendir"
+
+#: apps/users/templates/users/rate_star.html:25
+msgid "Rate this profile"
+msgstr "Bu profili değerlendir"
+
+#: apps/users/templates/users/register.html:12
+msgid "Register for free. And share your posts!"
+msgstr "Ücretsiz kaydolun ve içeriklerinizi paylaşın!"
+
+#: apps/users/templates/users/register.html:29
+msgid "I read and accept terms of use and privacy policy."
+msgstr "Kullanım koşullarını ve gizlilik sözleşmesini kabul ediyorum."
+
+#: apps/users/templates/users/register.html:33
+msgid " Agree and Accept."
+msgstr " Kabul ediyorum."
+
+#: apps/users/templates/users/register.html:35
+msgid ""
+"I accept that my personal information can be hosted in the servers that are "
+"out of the country."
+msgstr ""
+"Kişisel bilgilerin yurt dışındaki sunucularda host edilmesine onay veriyorum."
+
+#: apps/users/templates/users/register.html:39
+msgid "You must agree and accept in order to use this platform!"
+msgstr "Platformu kullanabilmek için koşulları kabul etmeniz gerekmektedir."
+
+#: apps/users/templates/users/register.html:47 templates/_navbar.html:127
+#: templates/sidebar_sticky.html:75
+msgid "Register"
+msgstr "Kaydol"
+
+#: apps/users/templates/users/register.html:55
+msgid "Have account?"
+msgstr "Hesabını var mı?"
+
+#: apps/users/templates/users/search.html:4
+msgid "Search Page"
+msgstr "Arama Sayfası"
+
+#: apps/users/templates/users/search.html:9
+msgid "Search for users"
+msgstr "Kullanıcıları ara"
+
+#: apps/users/templates/users/search.html:14
+#: apps/users/templates/users/search.html:18
+msgid "Search"
+msgstr "Ara"
+
+#: apps/users/templates/users/search.html:24
+msgid "seconds"
+msgstr "saniye"
+
+#: apps/users/templates/users/search.html:32
+msgid "There are no results for your search."
+msgstr ""
+
+#: apps/users/templates/users/user_package_info.html:9
+msgid "My Packages"
+msgstr "Paketlerim"
+
+#: apps/users/templates/users/user_package_info.html:21
+msgid "Remaining"
+msgstr "Kalan"
+
+#: apps/users/templates/users/user_package_info.html:32
+msgid "Due Date "
+msgstr "Bitiş Tarihi"
+
+#: apps/users/templates/users/user_package_info.html:43
+msgid "You do not have any package yet"
+msgstr "Henüz paketiniz yok."
+
+#: apps/users/templates/users/user_package_info.html:45
+msgid "You can contact us to"
+msgstr "Bizimle iletişime geçebilirsiniz "
+
+#: apps/users/templates/users/user_package_info.html:47
+msgid "buy a package."
+msgstr "paket almak için"
+
+#: apps/users/views.py:42
+msgid ""
+"Email confirmation has been sent. Please checkout your inbox.. \n"
+"                            If you can not see email confirmation mail, "
+"check out Spam box."
+msgstr ""
+"Email doğrulama adresinize gönderildi. Lütfen gelen kutunuzu kontrol ediniz. "
+"Eğer göremiyorsanız maili, Spam kutusuna bakabilirsiniz."
+
+#: apps/users/views.py:65
+msgid "Activation link is invalid!"
+msgstr "Aktivasyon linki geçersiz."
+
+#: apps/users/views.py:94
+msgid "You can not use the platform without accepting terms of use."
+msgstr "Kullanım koşullarını kabul etmeden platformu kullanamazsınız."
+
+#: apps/users/views.py:101
+msgid "Successfully registered!"
+msgstr "Başarıyla kayıt gerçekleşti!"
+
+#: apps/users/views.py:109
+msgid "Confirmation email has been sent!"
+msgstr "Doğrulama maili gönderildi."
+
+#: apps/users/views.py:112
+msgid "Could not send email confirmation!"
+msgstr "Email doğrulama gönderilemedi!"
+
+#: apps/users/views.py:115
+msgid ""
+"Could not send email confirmation! \n"
+"                            System administrators will investigate the "
+"problem."
+msgstr ""
+"Email doğrulama gönderilemedi! \n"
+"                            Sistem yöneticilerimiz problemi incelemektedir  "
+
+#: apps/users/views.py:169
+msgid "Successfully updated!"
+msgstr "Başarıyla güncellendi!"
+
+#: apps/users/views.py:223
+msgid "Successfully rated! Thanks!"
+msgstr "Başarıyla değerlendirme yapıldı! Teşekkürler!"
+
+#: src/settings/base.py:145
+msgid "English"
+msgstr "İngilizce"
+
+#: src/settings/base.py:146
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: templates/_navbar.html:30
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: templates/_navbar.html:49 templates/footer.html:31
+msgid "Private Lesson"
+msgstr "Özel Ders"
+
+#: templates/_navbar.html:65
+msgid "Job Seeker Developers"
+msgstr "İş Arayan Yazılımcılar"
+
+#: templates/_navbar.html:68
+msgid "Job Seekers"
+msgstr "İş Arayanlar"
+
+#: templates/_navbar.html:77 templates/sidebar_sticky.html:26
+msgid "General"
+msgstr "Genel"
+
+#: templates/_navbar.html:83 templates/footer.html:23
+#: templates/sidebar_sticky.html:32
+msgid "About Us"
+msgstr "Hakkımızda"
+
+#: templates/_navbar.html:106 templates/sidebar_sticky.html:90
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/_navbar.html:111 templates/sidebar_sticky.html:62
+msgid "Admin"
+msgstr "Yönetici"
+
+#: templates/_navbar.html:118 templates/sidebar_sticky.html:94
+msgid "Logout"
+msgstr "Çıkış"
+
+#: templates/core_email_subscription.html:8
+msgid "Free Email Resources"
+msgstr "Ücretsiz Email Kaynakları"
+
+#: templates/core_email_subscription.html:15
+msgid "Example; abraham@adnankaya.example.com"
+msgstr "Örneğin; ibrahim@adnankaya.example.com"
+
+#: templates/core_email_subscription.html:18
+msgid ""
+"Subscribe to our email newsletter to get the resources that will level up "
+"your skills."
+msgstr ""
+"Yeteneklerinizi üst seviyelere çıkarmak için email bültenimize abone "
+"olabilirsiniz."
+
+#: templates/core_email_subscription.html:22
+msgid "Subscribe"
+msgstr "Abone Ol"
+
+#: templates/core_email_subscription.html:30
+msgid "No spam, unsubscribe anytime"
+msgstr "Spam yok, istediğiniz zaman abonelikten çıkabilirsiniz."
+
+#: templates/core_tagbox.html:9
+msgid "Categories and Tags"
+msgstr "Kategoriler ve Etiketler"
+
+#: templates/errors/500.html:8
+msgid "HTTP 500 ERROR"
+msgstr "HTTP 500 Sunucu Hatası!"
+
+#: templates/errors/500.html:14
+msgid "An error occured and notified to our technical team!"
+msgstr ""
+
+#: templates/errors/500.html:16
+msgid "This service is unavailable temporarly! Please try again later."
+msgstr ""
+
+#: templates/errors/500.html:22
+msgid "Back to Home."
+msgstr ""
+
+#: templates/footer.html:9
+msgid "adnankaya.example.com"
+msgstr "adnankaya.example.com"
+
+#: templates/footer.html:41
+msgid "Adnan Kaya"
+msgstr ""
+
+#: templates/footer.html:50
+#, python-format
+msgid "Copyright <b>adnankaya.example.com</b> %(current_year)s"
+msgstr ""
+
+#: templates/languages.html:6
+msgid "Language"
+msgstr "Dil"
+
+#: templates/pagination.html:7
+msgid "Prev"
+msgstr "Önceki"
+
+#: templates/pagination.html:16
+msgid "Next"
+msgstr "Sonraki"
+
+#: templates/sidebar_sticky.html:14
+msgid "Posts"
+msgstr "Yazılar"
+
+#: templates/sidebar_sticky.html:20
+msgid "New Post"
+msgstr "Yeni Yazı"
+
+#: templates/sidebar_sticky.html:55
+msgid "Members Count:"
+msgstr "Üye Sayısı:"
+
+#: templates/sidebar_sticky.html:89
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: templates/themes.html:16
+msgid "Change Theme"
+msgstr "Tema Değiştir"
+
+#~ msgid "View Count"
+#~ msgstr "Görüntülenme Sayısı"
+
+#~ msgid "Update Post"
+#~ msgstr "Yazı Güncelle"
+
+#~ msgid "Search...Example; django"
+#~ msgstr "Ara...Örneğin; django"
+
+#~ msgid "Your inactive posts have been activated."
+#~ msgstr "Pasif olan yazılarınız aktif hale getirildi."
+
+#~ msgid "hour"
+#~ msgstr "saat"
+
+#~ msgid "min"
+#~ msgstr "dakika"
+
+#~ msgid "Artificial Intelligence"
+#~ msgstr "Yapay Zeka"
+
+#~ msgid "Data Mining"
+#~ msgstr "Veri Madenciliği"
+
+#~ msgid "GUI"
+#~ msgstr "Arayüz Geliştirme"
+
+#~ msgid "Deployment"
+#~ msgstr "Proje Yükleme/Yayınlama"
+
+#~ msgid "Software Engineering"
+#~ msgstr "Yazılım Mühendisliği"
+
+#~ msgid "Details.."
+#~ msgstr "Detaylar.."
+
+#~ msgid "Buy"
+#~ msgstr "Satın Al"
+
+#~ msgid "Developed by Adnan Kaya"
+#~ msgstr "Adnan Kaya tarafından geliştirildi."

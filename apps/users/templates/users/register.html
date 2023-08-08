@@ -1,0 +1,71 @@
+{% extends 'core.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block core_header %}
+{% endblock core_header %}
+{% block core_body %}
+<div class="row mt-4">
+    <div class="col">
+        <div class="card mt-4">
+            <div class="card-body mx-md-4">
+                <form method="POST" class="needs-validation">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ user_form|crispy }}
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="agreement_accepted" type="checkbox" value="true"
+                                id="invalidCheck" required
+                                oninvalid="this.setCustomValidity('You must agree to use the platform.')">
+                            <label class="form-check-label" for="invalidCheck">
+                                <small>
+                                    {{_("I read and accept terms of use and privacy policy.")}}
+                                    <a href="{% url 'terms-of-use' %}" target="_blank" class="text-decoration-none">
+                                        {{_("Terms of Use")}}
+                                    </a>
+                                    {{_(" Agree and Accept.")}}
+                                    <br>
+                                    {{_("I accept that my personal information can be hosted in the servers that are out of the country.")}}
+                                </small>
+                            </label>
+                            <div class="invalid-feedback">
+                                {{_("You must agree and accept in order to use this platform!")}}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group my-2">
+                        <div class="d-grid gap-2">
+                            <button disabled="disabled" id="registerButton" class="btn btn-warning border-dark" 
+                            type="submit">
+                                {{_('Register')}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer" style="min-height: 50px;">
+                <strong class="">
+                    {{_('Have account?')}}
+                    <a class="text-decoration-none" href="{% url 'users:login' %}">
+                        {{_('Login')}}
+                    </a>
+                </strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var invalidCheck = document.getElementById('invalidCheck');
+    var registerButton = document.getElementById('registerButton');
+    invalidCheck.onchange = function () {
+        if (this.checked) {
+            registerButton.disabled = false;
+        } else {
+            registerButton.disabled = true;
+        }
+    };
+</script>
+{% endblock %}

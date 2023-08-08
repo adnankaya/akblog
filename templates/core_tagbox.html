@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+{% load category_tags %}
+{% load post_tags %}
+
+<div class="card text-center bg-light">
+    <div class="card-title text-center text-muted p-1">
+        <i class="fa-solid fa-tag"></i>
+        {{_("Categories and Tags")}}
+    </div>
+    <div class="card-body">
+        {% get_categories as categories %}
+        {% for category in categories %}
+        <small>
+            <a href="{% url 'categories:posts-by-category' category_slug=category.slug %}"
+                class="badge badge-pill bg-md-blue-grey-500 text-light text-decoration-none">
+                <i class="{{category.icon}}"></i>
+                <small class="ms-1  d-sm-inline">{{ category.name }}</small>
+            </a>
+        </small>
+        {% endfor %}
+        <hr />
+        {% get_most_used_tags as tags %}
+        {% for tag in tags %}
+        <small>
+            <a href="{% url 'post:posts-by-tag' tag_slug=tag.slug %}"
+                class="text-muted text-decoration-none badge badge-pill p-2 pytr-tag">
+                {{ tag.name }}
+            </a>
+        </small>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {% include "post/searchbox.html" %}
+    </div>
+</div>

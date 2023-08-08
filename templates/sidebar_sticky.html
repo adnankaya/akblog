@@ -1,0 +1,98 @@
+{% load static %}
+{% load user_tags %}
+<div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-1 pt-1 text-white">
+    <a href="{% url 'post:index' %}" title="adnankaya.example.com"
+        class="navbar-brand p-0 me-0 me-lg-2 pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <img src="{% static 'assets/megaphone.png' %}" alt="" class="img-fluid ms-1 d-none d-sm-inline">
+        <img src="{% static 'assets/favicon64.ico' %}" alt="" class="d-block d-sm-none d-xs-none">
+    </a>
+    <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start align-items-xs-start"
+        id="menu">
+        <li class="d-none d-xxl-block d-xl-block d-lg-block d-md-block">
+            <a href="{% url 'post:index' %}" class="nav-link text-light px-sm-0 px-2">
+                <i class="fs-5 bi bi-file-text-fill"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Posts")}}</span></a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'post:create' %}" class="nav-link text-light px-sm-0 px-2">
+                <i class="fs-5 bi bi-pencil-square"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("New Post")}}</span></a>
+        </li>
+        {% endif %}
+        <li class="dropdown">
+            <a href="" class="nav-link text-light dropdown-toggle px-sm-0 px-1" id="dropdownGeneral"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fs-5 bi bi-signpost-2-fill"></i><span class="ms-1 d-none d-sm-inline">{{_("General")}}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow-sm" aria-labelledby="dropdownGeneral">
+                <li>
+                    <a href="{% url 'aboutus:index' %}" class="dropdown-item">
+                        <i class="fs-5 bi bi-door-open"></i>
+                        <span class="ms-1  d-sm-inline">{{_("About Us")}}</span> </a>
+                </li>
+                <li>
+                    <a href="{% url 'general:contact-us' %}" class="dropdown-item">
+                        <i class="fs-5 bi bi-headset"></i>
+                        <span class="ms-1  d-sm-inline">{{_("Contact")}}</span> </a>
+                </li>
+                <li>
+                    <a href="{% url 'terms-of-use' %}" target="_blank" class="dropdown-item">
+                        <i class="fs-5 bi bi-file-earmark-text"></i>
+                        <span class="ms-1  d-sm-inline">{{_("Terms of Use")}}</span> </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{% url 'courses:courses-index' %}" class="nav-link text-warning px-sm-0 px-2">
+                <i class="fs-5 bi bi-play-btn-fill"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Courses")}}</span></a>
+        </li>
+        {% if user.is_authenticated and user.is_superuser %}
+        <li class="d-none d-sm-block border border-warning p-1 rounded">
+            <i class="fs-5 bi bi-people-fill"></i>
+            <small class="ms-1 d-none d-sm-inline text-light">
+                {{_("Members Count:")}}
+                {% get_member_count %}
+            </small>
+        </li>
+        <li>
+            <a href="/ceadmin/" target="_blank" class="nav-link text-primary px-sm-0 px-2">
+                <i class="fs-4 bi bi-person-bounding-box"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Admin")}}</span></a>
+        </li>
+        {% endif %}
+        {% if not user.is_authenticated %}
+        <!-- <li>
+            <a class="nav-link text-light px-sm-0 px-2" href="{% url 'users:login' %}">
+                <i class="fs-5 bi bi-box-arrow-in-right"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Login")}}</span>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link text-light px-sm-0 px-2" href="{% url 'users:register' %}">
+                <i class="fs-5 bi bi-pencil-square"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Register")}}</span>
+            </a>
+        </li> -->
+        {% endif %}
+        {% include "languages.html" %}
+    </ul>
+    {% if user.is_authenticated %}
+    <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+        <a href="" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person"></i>
+            <span class="d-sm-inline mx-1">{{user.username}}</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow-sm" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="{% url 'post:index' %}">{{_("Settings")}}</a></li>
+            <li><a class="dropdown-item" href="{% url 'users:myprofile' %}">{{_("Profile")}}</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'users:logout' %}">{{_("Logout")}}</a></li>
+        </ul>
+    </div>
+    {% endif %}
+</div>

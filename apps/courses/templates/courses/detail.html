@@ -1,0 +1,103 @@
+{% extends "courses/base.html" %}
+{% load i18n %}
+{% block base_core %}
+
+{% block core_body %}
+{% block courses_body %}
+{% if course %}
+
+<div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-title p-3">
+                <h5>
+                    <a href="{{ course.get_absolute_url }}" class="text-decoration-none ">
+                        <i class="bi bi-collection-play-fill"></i>
+                        <span class="">
+                            {{ course.title }}
+                        </span>
+                    </a>
+
+                </h5>
+            </div>
+            <div class="card-body">
+                <iframe class="w-100 h-100" style="min-height: 28rem;" src="{{course.intro_url}}"
+                    title="{{course.title}}" frameborder="0" allowfullscreen>
+                </iframe>
+                <div class="row mt-3">
+                    <div class="col">
+                        <span>
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <span>
+                                {{ course.tutor.get_full_name }}
+                            </span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-film"></i>
+                            <span>
+                                {{ course.lesson_count }}
+                                {{_("Lectures")}}
+                            </span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-clock"></i>
+                            <span>
+                                <span>
+                                    {{ course.duration }}
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        {{ course.description|safe }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <small class="tags">
+                            <i class="bi bi-tags-fill"></i>
+                            {% for tag in course.get_tags %}
+                            <a class="text-decoration-none badge badge-pill bg-dark text-white"
+                                href="{% url 'courses:courses-by-tag' tag_slug=tag.slug %}">
+                                {{ tag.name }}
+                            </a>
+                            {% if not forloop.last %} {% endif %}
+                            {% endfor %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-4">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="accordion accordion-flush" id="accordionLectures">
+            {% for lecture in course.lecture_set.all %}
+            <div class="accordion-item m-1">
+                <h2 class="accordion-header" id="heading-{{lecture.id}}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-{{lecture.id}}" aria-expanded="false"
+                        aria-controls="collapse-{{lecture.id}}">
+                        {{lecture.title}}
+                    </button>
+                </h2>
+                <div id="collapse-{{lecture.id}}" class="accordion-collapse collapse"
+                    aria-labelledby="heading-{{lecture.id}}" data-bs-parent="#accordionLectures">
+                    <div class="accordion-body">
+                        <iframe class="w-100 h-100" style="min-height: 24rem;" src="{{lecture.video_url}}"
+                            title="{{lecture.title}}" frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock courses_body %}
+{% endblock core_body %}
+{% endblock base_core %}

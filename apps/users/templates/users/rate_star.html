@@ -1,0 +1,47 @@
+{% load i18n %}
+{% load user_tags %}
+
+{% is_profile_rated_by_user_before profile user as result %}
+{% if result %}
+<div class="rate">
+    <div class="d-flex justify-content-between">
+        <div class="mt-2">
+            <b>
+                {{_("Rate")}} :
+            </b>
+        </div>
+        <div>
+            <span class="badge text-bg-primary p-2 mx-1">
+                {{profile.get_profile_rate|floatformat:1}}
+            </span>
+            <i class="fs-5 bi bi-star-fill text-warning"></i>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="d-flex justify-content-between">
+    <div class="mt-2">
+        <b>
+            {{_("Rate this profile")}}:
+        </b>
+    </div>
+    <div>
+        <form action="{% url 'users:rate-profile' username=profile.user.username %}" method="post">
+            {% csrf_token %}
+            <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+            </div>
+            <button class="btn btn-warning" type="submit">{{_("Submit")}}</button>
+        </form>
+    </div>
+</div>
+{% endif %}

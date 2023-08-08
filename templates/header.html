@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load general_tags %}
+<div class="row my-4">
+    <div class="col">
+        {% get_header_slide_objects as header_slide_objects %}
+        {% if header_slide_objects %}
+        <div class="row mb-2">
+            <div class="col" style="min-height: 180px;">
+                <div class="text-center bg-md-light-blue-900">
+                    {% include "slider.html" with slider_objects=header_slide_objects %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

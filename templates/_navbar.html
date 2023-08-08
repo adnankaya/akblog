@@ -1,0 +1,139 @@
+{% load static %}
+{% load i18n %}
+{% load category_tags %}
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-md-light-blue-900 flex-column">
+    <div class="container-xxl">
+        <a class="navbar-brand" href="/">
+            <span class="text-light rounded rounded-circle p-1">
+                <i class="fa-brands fa-python fa-xl" style="font-size: 36px;"></i>
+            </span>
+            Adnan Kaya
+        </a>
+        <button class="navbar-toggler" type="button btn-warning" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li>
+                    <a href="{% url 'courses:courses-index' %}" class="nav-link text-white px-sm-0 px-2">
+                        <i class="fa-solid fa-video"></i>
+                        <span class="mx-2 ">{{_("Courses")}}</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link  dropdown-toggle px-sm-0 px-1 mx-1" id="dropdownCategories"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-folder-tree"></i>
+                        <span class="">{{_("Categories")}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow-sm"
+                        aria-labelledby="dropdownCategories">
+                        {% get_categories as categories %}
+                        {% for category in categories %}
+                        <li>
+                            <a href="{% url 'categories:posts-by-category' category_slug=category.slug %}"
+                                class="dropdown-item">
+                                <i class="{{category.icon}}"></i>
+                                <span class="ms-1  d-sm-inline">{{ category.name }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'general:contact-us' %}" class="nav-link  px-sm-0 px-2 mx-1">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span class="mx-2 ">{{_("Private Lesson")}}</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-4">
+                <li>
+                    <a href="{% url 'post:index' %}" class="nav-link text-white px-sm-0 px-2">
+                        <i class="fa-solid fa-blog"></i>
+                        <span class="mx-2 ">{{_("Blog")}}</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-4">
+                {% include "languages.html" %}
+            </ul>
+            <ul class="navbar-nav me-4">
+                <li>
+                    <a href="{% url 'developers:developers-job-seekers' %}" class="nav-link text-white px-sm-0 px-2"
+                    title="{{_('Job Seeker Developers')}}"
+                    >
+                        <i class="fa-solid fa-id-card"></i>
+                        <span class="mx-2 ">{{_("Job Seekers")}}</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="dropdown">
+                    <a href="" class="nav-link  dropdown-toggle px-sm-0 px-1" id="dropdownPrivateEducation"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-signs-post"></i>
+                        <span class="mx-1 ">{{_("General")}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow-sm" aria-labelledby="dropdownGeneral">
+                        <li>
+                            <a href="{% url 'aboutus:index' %}" class="dropdown-item">
+                                <i class="fs-5 bi bi-door-open"></i>
+                                <span class="ms-1  d-sm-inline">{{_("About Us")}}</span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'general:contact-us' %}" class="dropdown-item">
+                                <i class="fs-5 bi bi-headset"></i>
+                                <span class="ms-1  d-sm-inline">{{_("Contact")}}</span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'terms-of-use' %}" target="_blank" class="dropdown-item">
+                                <i class="fs-5 bi bi-file-earmark-text"></i>
+                                <span class="ms-1  d-sm-inline">{{_("Terms of Use")}}</span> </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <div class="dropdown mx-2">
+                <a class="d-block link-light text-decoration-none dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fs-5 bi bi-person-fill"></i>
+                    {{user.username}}
+                </a>
+                <ul class="dropdown-menu" data-popper-placement="bottom-end">
+                    <li><a class="dropdown-item" href="{% url 'users:myprofile' %}">{{_("Profile")}}</a></li>
+                    {% if user.is_superuser %}
+                    <li>
+                        <a class="dropdown-item" href="/ceadmin/" target="_blank">
+                            <i class="bi bi-gear-fill"></i>
+                            {{_("Admin")}}
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'users:logout' %}">{{_("Logout")}}</a></li>
+                </ul>
+            </div>
+            {% else %}
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a href="{% url 'users:login' %}" class="nav-link">{{_("Login")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'users:register' %}" class="nav-link">{{_("Register")}}</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <!-- ATTENTION!!! 
+        "messages.html" Must be inside nav because alert messages must be on top of every item 
+    -->
+    {% block core_messages %}
+    {% include "_messages.html" %}
+    {% endblock core_messages %}
+</nav>

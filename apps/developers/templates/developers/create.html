@@ -1,0 +1,167 @@
+{% extends "developers/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block developers_body %}
+<div class="row my-4">
+    <div class="col jobseeker-create">
+        <div class="alert alert-warning">
+            <i class="fa-solid fa-warning"></i>
+            {{_("By joining the developer job seekers dashboard, you accept the terms of use and receive emails.")}}
+        </div>
+    </div>
+</div>
+<div class="row my-4">
+    <div class="col">
+        {% if form %}
+        <div class="card bg-md-grey-900 p-2">
+            <div class="card-title text-warning p-2">
+                <i class="fa-solid fa-edit"></i>
+                <b>{{_("Fill in the form to join the developer job seekers board.")}}</b>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'developers:developer-create' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="id_firstname">{{_("Firstname")}}</span>
+                                <input required type="text" class="form-control bg-dark text-warning" name="firstname"
+                                    aria-label="firstname" aria-describedby="id_firstname" placeholder="{{_('Firstname')}}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_lastname">{{_("Lastname")}}</span>
+                                <input required type="text" class="form-control bg-dark text-warning " name="lastname"
+                                    aria-label="lastname" aria-describedby="id_lastname" placeholder="{{_('Lastname')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_experience_years">{{_("Experience Years")}}</span>
+                                <input type="number" class="form-control bg-dark text-warning " name="experience_years"
+                                    aria-label="experience_years" max="50" min="0" maxlength="4" minlength="1" step="0.1"
+                                    required placeholder="{{_('Ex; 5')}}" aria-describedby="id_experience_years">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="id_email">{{_("Email")}}</span>
+                                <input placeholder="{{_('Ex; abraham@adnankaya.example.com')}}" type="email"
+                                    class="form-control bg-dark text-warning" required name="email" aria-label="email"
+                                    aria-describedby="id_email">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_job_title">{{_("Job Title")}}</span>
+                                <input required type="text" class="form-control bg-dark text-warning " name="job_title"
+                                    aria-label="job_title" placeholder="{{_(" Ex; Python Web Developer")}}"
+                                    aria-describedby="id_job_title">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-warning">
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_linkedin">{{_("Linkedin URL")}}</span>
+                                <input type="url" class="form-control bg-dark text-warning " name="linkedin"
+                                    aria-label="linkedin" aria-describedby="id_linkedin"
+                                    placeholder="{{_('Linkedin profile URL')}}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="id_github">{{_("Github URL")}}</span>
+                                <input type="url" class="form-control bg-dark text-warning " name="github"
+                                    aria-label="github" aria-describedby="id_github"
+                                    placeholder="{{_('Github profile URL')}}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_website">{{_("Website URL")}}</span>
+                                <input type="url" class="form-control bg-dark text-warning " name="website"
+                                    aria-label="website" aria-describedby="id_website"
+                                    placeholder="{{_('Your website URL')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_twitter">{{_("Twitter URL")}}</span>
+                                <input type="url" class="form-control bg-dark text-warning " name="twitter"
+                                    aria-label="twitter" aria-describedby="id_twitter"
+                                    placeholder="{{_('Twitter profile URL')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="input-group ">
+                                <span class="input-group-text" id="id_linkedin_pp_url">{{_("Profile Picture URL")}}</span>
+                                <input type="url" class="form-control bg-dark text-warning " name="linkedin_pp_url"
+                                    aria-label="linkedin_pp_url" aria-describedby="id_linkedin_pp_url"
+                                    placeholder="{{_('Profile Picture URL. Ex; Linkedin profile picture URL')}}">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row mb-4">
+                        <h5 class="text-warning">
+                            {{_("Click skills to add.")}}
+                            <hr>
+                        </h5>
+                        <div class="col">
+                            {% if skills %}
+                            <div class="chips-container">
+                                {% for skill in skills%}
+                                <label class="chip" for="{{skill.id}}">
+                                    <input name="skills" value="{{skill.id}}" type="checkbox" id="{{skill.id}}">
+                                    <span>{{skill.name}}</span>
+                                </label>
+                                {% endfor %}
+                            </div>
+                            {% endif%}
+                        </div>
+                    </div>
+                    <button onclick="validateURL()" class="btn btn-warning" type="submit">
+                        <i class="fa-solid fa-check"></i>
+                        {{_("Submit")}}
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    function validateURL() {
+      var userInput = document.getElementById("urlInput").value;
+      var urlPattern = /^(http:\/\/|https:\/\/)([\w-]+(\.[\w-]+)*\.com)([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?$/;
+
+      
+      try {
+        var url = new URL(userInput);
+        if (urlPattern.test(userInput)) {
+          alert("Valid URL!");
+        } else {
+          alert("Invalid URL!");
+        }
+      } catch (error) {
+        alert("Invalid URL!");
+      }
+    }
+  </script>
+{% endblock developers_body %}

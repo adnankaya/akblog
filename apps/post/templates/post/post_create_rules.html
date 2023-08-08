@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load post_tags %}
+<div class="card bg-light">
+    <div class="card-header bg-dark text-white">
+        <h5>
+            <i class="bi bi-pin-angle-fill"></i>
+            {{_("The rules to publish a post/ad")}}
+        </h5>
+    </div>
+    <div class="card-body">
+        {% get_post_create_rules as post_create_rules %}
+        <ul class="list-group list-group-flush">
+            {% for bcr in post_create_rules %}
+            <li class="list-group-item">
+                <span class="badge badge-pill text-dark">{{forloop.counter}}</span>
+                <small>{{bcr.rule}}</small>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

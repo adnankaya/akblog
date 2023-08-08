@@ -1,0 +1,64 @@
+{% load i18n %}
+<div>
+  <a href="#" class="clsPostimageThumbnail">
+    <img src="{{post_img_obj.image.url}}" class="img-fluid w-100 h-100" style="object-fit: contain;">
+  </a>
+  {% if user.is_authenticated and user == post.created_by %}
+  <a href="{% url 'post:remove-post-image' post_pk=post.pk postimg_pk=post_img_obj.id %}" class="btn btn-warning-link">
+    <i class="bi bi-trash"></i>
+    {{_("Delete")}}
+  </a>
+  {% endif %}
+</div>
+
+<div class="modal fade" id="imagemodal{{post_img_obj.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div id="carouselExampleControls{{post_img_obj.id}}" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for img in post_images %}
+            {% if post_img_obj == img %}
+            <div class="carousel-item active">
+              <img src="{{post_img_obj.image.url}}" class="imagepreview img-fluid d-block w-100"
+                alt="{{post_img_obj.pk}}">
+              {% else %}
+              <div class="carousel-item">
+                <img src="{{img.image.url}}" class="img-fluid d-block w-100" alt="{{img.pk}}">
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev bg-secondary" type="button"
+              data-bs-target="#carouselExampleControls{{post_img_obj.id}}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next bg-secondary" type="button"
+              data-bs-target="#carouselExampleControls{{post_img_obj.id}}" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="d-flex align-items-end m-2">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{_("Close")}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TODO: move to global scope -->
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var idModal = "#imagemodal" + "{{post_img_obj.id}}";
+    $(function () {
+      $('.clsPostimageThumbnail').on('click', function () {
+        // selectedImageURL = $(this).find('img').attr('src')
+        // $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $(idModal).modal('show');
+      });
+    });
+  </script>

@@ -1,0 +1,27 @@
+{% load i18n %}
+{% with post_images=post.postimage_set.all %}
+{% if post_images.exists %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="">
+            <i class="fs-4 bi bi-images"></i>
+            {{_("Post Images")}}
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            {% for post_img_obj in post_images.all %}
+            <div class="col-4 mb-2">
+                <div class="card border-0 h-100 w-100" style="width: 16rem;">
+                    <div class="card-body">
+                        {% include "post/post_image.html" %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endwith %}

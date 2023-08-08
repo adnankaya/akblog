@@ -1,0 +1,37 @@
+{% extends "developers/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block developers_body %}
+<div class="row my-4">
+    <div class="col d-flex justify-content-end jobseeker">
+        <a href="{% url 'developers:developer-create' %}" class="btn btn-primary p-2 m-2">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span class="mx-2 ">{{_("Join Developer Job Seekers Board")}}</span>
+        </a>
+    </div>
+</div>
+<hr class="border border-dark">
+{% if paginated_devs %}
+<div class="row">
+    {% for dev in paginated_devs %}
+    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        {% include "developers/dev-card.html"%}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="row">
+    <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <!-- <div class="alert alert-warning text-center">
+            <h3>
+                <i class="fa-solid fa-warning"></i>
+                <span>{{_("devs not found!")}}</span>
+            </h3>
+        </div> -->
+    </div>
+</div>
+{% endif %}
+
+{% endblock developers_body %}

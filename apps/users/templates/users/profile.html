@@ -1,0 +1,39 @@
+{% extends "core.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block core_body %}
+{% if profile %}
+<div class="content-section">
+  {% if can_edit_profile %}
+  <div class="accordion accordion-flush border border-primary shadow-sm" id="accordionProfileUpdate">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingProfileUpdate">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <i class="fs-4 bi bi-person-lines-fill"></i>
+          <strong class="mx-2">
+            {{_('Update Profile')}}
+          </strong>
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingProfileUpdate"
+        data-bs-parent="#accordionProfileUpdate">
+        <div class="accordion-body">
+          {% include "users/myprofile.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% include "users/profile_posts.html" %}
+
+{%else%}
+<div class="alert alert-danger">
+  <b>Profile not found!</b>
+</div>
+{%endif%}
+{% endblock core_body %}
+{% block core_rightbar %}
+{% include "users/profile_info.html" %}
+{% endblock core_rightbar %}

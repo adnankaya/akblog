@@ -1,0 +1,15 @@
+{% extends "categories/base.html" %}
+{% load i18n %}
+
+
+{% block categories_body %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for post in paginated_posts %}
+    <div class="col" style="height: 18rem;">
+        {% include "post/post_item.html" %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock categories_body %}

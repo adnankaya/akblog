@@ -1,0 +1,29 @@
+{% extends "core.html" %}
+{% load i18n %}
+{% block core_body %}
+
+<div class="card p-2">
+    <div class="card-header">
+        <h5>
+            {{_("HTTP 500 ERROR")}}
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger">
+            <strong>
+                {{_("An error occured and notified to our technical team!")}}
+                <br>
+                {{_("This service is unavailable temporarly! Please try again later.")}}
+            </strong>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="/" class="text-decoration-none text-primary">
+            {{_("Back to Home.")}}
+        </a>
+    </div>
+</div>
+
+
+
+{% endblock core_body %}

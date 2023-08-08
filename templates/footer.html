@@ -1,0 +1,59 @@
+{% load i18n %}
+
+
+<div class="container-fluid shadow-sm bg-md-light-blue-900 p-4" style="min-height: 200px;">
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'home:home-index' %}" class="nav-link text-light mb-1">
+                <i class="fa-brands fa-python p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("adnankaya.example.com")}}</span>
+            </a>
+            <a href="{% url 'post:index' %}" class="nav-link text-light mb-1">
+                <i class="fa-solid fa-blog p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Blog")}}</span>
+            </a>
+            <a href="{% url 'terms-of-use' %}" target="_blank" class="nav-link text-light mb-1">
+                <i class="bi bi-file-earmark-text p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Terms of Use")}}</span>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'aboutus:index' %}" class="nav-link text-light mb-1">
+                <i class="bi bi-door-open p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("About Us")}}</span>
+            </a>
+            <a href="{% url 'general:contact-us' %}" class="nav-link text-light mb-1">
+                <i class="bi bi-headset p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Contact")}}</span>
+            </a>
+            <a href="{% url 'general:contact-us' %}" class="nav-link text-light mb-1">
+                <i class="fa-solid fa-user-graduate p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Private Lesson")}}</span>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'courses:courses-index' %}" class="nav-link text-light mb-1">
+                <i class="fs-5 bi bi-play-btn-fill p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Courses")}}</span>
+            </a>
+            <a href="https://adnankaya.github.io" target="_blank" class="nav-link text-light mb-1">
+                <i class="bi bi-github p-1 rounded"></i>
+                <span class="ms-1 d-none d-sm-inline">{{_("Adnan Kaya")}}</span>
+            </a>
+        </div>
+    </div>
+    <div class="mt-4 justify-content-center">
+        <div class="row">
+            <a href="https://adnankaya.github.io" class="text-decoration-none text-light text-center">
+                <i class="bi bi-clock"></i>
+                {% now "Y" as current_year %}
+                {% blocktranslate %}Copyright <b>adnankaya.example.com</b> {{ current_year }}{% endblocktranslate %}
+            </a>
+        </div>
+        <div class="row text-center">
+            <small class="text-warning">
+                Developed by Adnan Kaya
+            </small>
+        </div>
+    </div>
+</div>

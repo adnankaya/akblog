@@ -1,0 +1,36 @@
+{% extends "core.html" %}
+{% load i18n %}
+
+{% block core_header %}
+<header class="bg-md-light-blue-900 text-white p-4" style="min-height: 400px;">
+    <div class="">
+      <div class="text-center">
+        <h1 class="mt-5">
+          {{_("Welcome to Adnan Kaya's blog app!")}}
+        </h1>
+        <p class="lead">
+            {{_("You will get amazing experience in my blog app!")}}
+        </p>
+        <div class="mt-5">
+          <a href="{% url 'post:index' %}" class="btn btn-outline-warning btn-lg me-4">
+            <i class="fa-solid fa-blog"></i>
+            {{_("Blog")}}
+            </a>
+            <a href="{% url 'courses:courses-index' %}" class="btn btn-outline-light btn-lg">
+                <i class="fa-solid fa-video"></i>
+                {{_("Courses")}}
+            </a>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock core_header %}
+
+{% block core_body %}
+
+
+{% block home_body %}
+{% endblock home_body %}
+
+
+{% endblock core_body %}

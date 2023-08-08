@@ -1,0 +1,25 @@
+{% load i18n %}
+{% if profile_posts %}
+<div class="row my-2">
+    <div class="col">
+        <h6 class="alert alert-warning">
+            <i class="fs-5 bi bi-menu-down"></i>
+            {{_(" Published posts by this user")}}
+        </h6>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in profile_posts %}
+            <div class="col" style="height: 18rem;">
+                {% include "post/post_item.html" %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-warning mt-4">
+    <h5>
+        <i class="fs-5 bi bi-cone-striped"></i>
+        {{_("This user did not publish a post yet!")}}
+    </h5>
+</div>
+{% endif %}
